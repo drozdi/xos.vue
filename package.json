@@ -1,0 +1,32 @@
+{
+  "name": "xos",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "encore production --progress",
+    "dev": "encore dev",
+    "dev-server": "encore dev-server",
+    "watch": "encore dev --watch"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "@quasar/extras": "^1.16.11",
+    "axios": "^1.7.2",
+    "core-js": "^3.37.1",
+    "quasar": "^2.16.4",
+    "vue": "^3.4.27",
+    "vue-axios": "^3.5.2",
+    "vue-i18n": "^9.13.1",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^4.6.1",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.4.0",
+    "@vue/babel-preset-jsx": "^1.4.0",
+    "@vue/devtools": "^6.6.3",
+    "sass": "^1.77.2",
+    "sass-loader": "^14.2.1",
+    "vue-loader": "^17.4.2",
+    "webpack-notifier": "^1.15.0"
+  }
+}

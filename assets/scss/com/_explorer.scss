@@ -1,0 +1,153 @@
+.xLayout.xCore {
+	width: 100%;
+	height: 100%;
+	cursor: default;
+}
+
+@include namespace('xFolder', true) {
+    @include name {
+      overflow-y: auto;
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      top: 0;
+      right: 0;
+      padding: 6px;
+
+      li {
+        width: 124px;
+        height: 146px;
+        padding: 3px 3px;
+        margin: 3px;
+        .name {
+          font-size: 12px;
+        }
+      }
+    }
+  @include name (null, '.trash') {
+    li {
+      width: 62px;
+      height: 73px;
+      padding: 1px 0;
+      margin: 5px;
+      .name {
+        font-size: 10px;
+      }
+    }
+  }
+    @include name {
+        li {
+          position: relative;
+          float: left;
+          overflow: hidden;
+          text-align: center;
+          @include border-radius(1px);
+          border: 1px solid transparent;
+          transition: border-color ease-in-out 0.15s, background-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, color ease-in-out 0.15s;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.19);
+            color: white;
+          }
+          &.selected,
+          &.selected:hover {
+            background: rgba(108, 148, 255, 0.17);
+            border-color: rgba(58,75,255,0.30);
+            color: white;
+          }
+          .image {
+            width: 100%;
+            height: 70%;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+          }
+          .name {
+            width: 96%;
+            height: 25%;
+            padding: 0 3px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+            &.input {
+              cursor: text;
+            }
+          }
+          .progress {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            z-index: 9999;
+            background-color: rgba(255, 255, 255, 0.5);
+          }
+          img.preview {
+            display: inline-block;
+            max-width: 100%;
+            max-height: 100%;
+          }
+          div.preview {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+          }
+
+
+          &.disk div.preview {
+            background-image: url(images/file/disk.png);
+          }
+          &.folder div.preview,
+          &.root div.preview {
+            background-image: url(images/file/folder.png);
+          }
+          &.image div.preview {
+            background-image: url(images/file/image.png);
+          }
+          &.video div.preview {
+            background-image: url(images/file/video.png);
+          }
+          &.audio div.preview {
+            background-image: url(images/file/audio.png);
+          }
+
+          &.document div.preview {
+            background-image: url(images/file/document.png);
+            &.doc div.preview {
+              background-image: url(images/file/document-doc.png);
+            }
+            &.docx div.preview {
+              background-image: url(images/file/document-doc.png);
+            }
+            &.xls div.preview {
+              background-image: url(images/file/document-xls.png);
+            }
+            &.xlsx div.preview {
+              background-image: url(images/file/document-xls.png);
+            }
+          }
+          &.archive div.preview {
+            background-image: url(images/file/archive.png);
+          }
+          &.web div.preview {
+            background-image: url(images/file/document.png);
+            &.php div.preview {
+              background-image: url(images/file/web-php.png);
+            }
+            &.css div.preview {
+              background-image: url(images/file/web-css.png);
+            }
+            &.js div.preview {
+              background-image: url(images/file/web-js.png);
+            }
+          }
+        }
+    }
+}

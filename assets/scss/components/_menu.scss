@@ -1,0 +1,463 @@
+@import "../vars/menu";
+@import "../tools/namespace";
+@import "../mixins/base";
+@import "../mixins/menu";
+@import "../mixins/typography";
+
+
+%menu {
+	@if $enable-flex {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	input, a, button, select {
+		margin-bottom: 0;
+		line-height: 1;
+		text-decoration: none;
+		display: block;
+	}
+}
+
+%menu-item {
+	@if $enable-flex {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	} @else {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	max-width: 100%;
+	position: relative;
+	@include disable-mouse-outline;
+}
+%menu-item-disabled {
+	cursor: not-allowed !important;
+	pointer-events: none !important;
+}
+
+%menu-link {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	position: relative;
+	@include transition($menu-link-transition);
+	@include disable-mouse-outline;
+	> small {
+		display: block;
+		font-size: 80%;
+		line-height: 1;
+	}
+	&, > img, > i {
+		vertical-align: middle;
+	}
+}
+%menu-link {
+	font-size: $menu-link-font-size;
+	line-height: $menu-link-line-height;
+	padding: $menu-link-padding-y $menu-link-padding-x;
+}
+%menu-link {
+	@include item-style($menu-link-color, $menu-link-bg, $menu-link-border);
+	&:disabled,
+	&[disabled],
+	form:disabled &,
+	form[disabled] &,
+	fieldset:disabled &,
+	fieldset[disabled] & {
+		@extend %menu-link-disabled;
+	}
+}
+%menu-link-hover {
+	@include item-style($menu-link-hover-color, $menu-link-hover-bg, $menu-link-hover-border);
+}
+%menu-link-active {
+	@include item-style($menu-link-active-color, $menu-link-active-bg, $menu-link-active-border);
+}
+%menu-link-disabled {
+	cursor: not-allowed !important;
+	pointer-events: none !important;
+	opacity: 0.55;
+}
+
+%menu-heading,
+%menu-separator {
+	@include clearfix;
+	overflow: hidden;
+	&:before,
+	&:after {
+		position: absolute;
+		left: -100px;
+	}
+}
+%menu-separator {
+	overflow: hidden;
+	background-color: transparent;
+	border-left: 1px solid $menu-divider-border;
+	margin: ($menu-link-padding-y / 2) ($menu-link-padding-x / 2);
+	min-height: 100%;
+	width: 0;
+}
+%menu-heading {
+	padding: ($menu-link-padding-y / 2) $menu-link-padding-x;
+	font-size: $menu-link-font-size;
+	text-transform: $menu-header-text-transform;
+	font-weight: $menu-header-font-weight;
+	&:not(:first-child) {
+		margin-top: $menu-link-padding-y;
+	}
+}
+%menu-separator-vertical {
+	border-top: 1px solid $menu-divider-border;
+	//margin: ($menu-link-padding-y / 2) 0;
+	min-height: 0;
+	width: auto;
+}
+
+// mod
+%menu-inline {
+	@if $enable-flex {
+		display: inline-flex;
+	} @else {
+		display: inline-block;
+	}
+}
+%menu-item-inline {
+	display: inline-block;
+}
+
+%menu-justified {
+	@if $enable-flex {
+		justify-content: space-between;
+	} @else {
+		display: table;
+		table-layout: fixed;
+	}
+	width: 100%;
+}
+%menu-item-justified {
+	@if $enable-flex {
+		flex: 1 1 0px;
+	} @else {
+		display: table-cell;
+	}
+	max-width: 100%;
+}
+
+%menu-align-left {
+	@if $enable-flex {
+		justify-content: flex-start;
+	} @else {
+		text-align: left;
+	}
+}
+%menu-align-center {
+	@if $enable-flex {
+		justify-content: center;
+	} @else {
+		text-align: center;
+	}
+}
+%menu-align-right {
+	@if $enable-flex {
+		justify-content: flex-end;
+	} @else {
+		text-align: right;
+	}
+}
+
+%menu-vertical {
+	width: 100%;
+	@if $enable-flex {
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+}
+%menu-item-vertical {
+	@if not $enable-flex {
+		display: block !important;
+	}
+}
+
+%menu-horizontal {
+	@if $enable-flex {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+%menu-item-horizontal {
+	display: table-cell !important;
+}
+
+%menu-pills {
+	@extend %menu-inline;
+}
+%menu-item-item-pills {
+	margin-left: -1px;
+}
+%menu-link-pills {
+	@include item-size($border: 0.0625rem solid transparent, $padding: $menu-link-padding-y $menu-link-padding-x, $border-props: width style);
+	@include item-style($menu-pills-color, $menu-pills-bg, $menu-pills-border);
+}
+%menu-link-pills-first {
+	@include border-left-radius($menu-pills-border-radius)
+}
+%menu-link-pills-last {
+	@include border-right-radius($menu-pills-border-radius)
+}
+%menu-link-pills-hover {
+	@include item-style($menu-pills-hover-color, $menu-pills-hover-bg, $menu-pills-hover-border);
+}
+%menu-link-pills-active {
+	@include item-style($menu-pills-active-color, $menu-pills-active-bg, $menu-pills-active-border);
+}
+
+%menu-link-side {
+	@include menu-link-style-border(bottom, $menu-link-padding-y $menu-link-padding-x);
+}
+%menu-link-side-hover {
+	@include menu-link-style-border(bottom, $menu-link-padding-y $menu-link-padding-x);
+}
+%menu-link-side-active {
+	@include menu-link-style-border(bottom, $menu-link-padding-y $menu-link-padding-x);
+}
+
+
+@include namespace('@menu', $component-menu) {
+	@include name {
+		@extend %menu;
+	}
+	@include name(null, disabled '.disabled' '[disabled]' ':disabled') {
+		@include name(link) {
+			@extend %menu-link-disabled;
+		}
+	}
+	@include name(item) {
+		@extend %menu-item;
+	}
+	@include name(item, disabled '.disabled' '[disabled]' ':disabled') {
+		@include name(link) {
+			@extend %menu-link-disabled;
+		}
+	}
+	@include name(item, active '.active') {
+		@include name(link) {
+			@extend %menu-link-active;
+		}
+	}
+	@include name(link) {
+		@extend %menu-link;
+		@include hover-focus(false) {
+			@extend %menu-link-hover;
+		}
+		@include active {
+			@extend %menu-link-active;
+		}
+	}
+	@include name(link, disabled '.disabled' '[disabled]' ':disabled') {
+		@extend %menu-link-disabled;
+	}
+	@include name(heading) {
+		@extend %menu-heading;
+	}
+	@include name(separator) {
+		@extend %menu-separator;
+	}
+
+	@include name(null, vertical) {
+		@extend %menu-vertical;
+		@include name {
+			@extend %menu-vertical;
+		}
+		@include name(item) {
+			@extend %menu-item-vertical;
+		}
+		@include name (separator) {
+			@extend %menu-separator-vertical;
+		}
+	}
+	@include name(null, horizontal) {
+		@extend %menu-horizontal;
+		@include name(item) {
+			@extend %menu-item-horizontal;
+		}
+	}
+	@include name(null, justified) {
+		@extend %menu-justified;
+		@include name(item) {
+			@extend %menu-item-justified;
+		}
+	}
+	@include name(null, inline) {
+		@extend %menu-inline;
+		@include name(item) {
+			@extend %menu-item-inline;
+		}
+	}
+	@include name(null, '.align-left') {
+		@extend %menu-align-left;
+		@include name(item) {
+			@extend %menu-item-inline;
+		}
+	}
+	@include name(null, '.align-center') {
+		@extend %menu-align-center;
+		@include name(item) {
+			@extend %menu-item-inline;
+		}
+	}
+	@include name(null, '.align-right') {
+		@extend %menu-align-right;
+		@include name(item) {
+			@extend %menu-item-inline;
+		}
+	}
+	@include name(null, side) {
+		@include name(link) {
+			@extend %menu-link-side;
+			@include hover-focus(false) {
+				@extend %menu-link-side-hover;
+			}
+			@include active(false) {
+				@extend %menu-link-side-active;
+			}
+		}
+		@include name(item, active '.active') {
+			@include name(link) {
+				@extend %menu-link-side-active;
+			}
+		}
+		&#{name(null, vertical)}.float-left {
+			@include name(link) {
+				@include menu-link-style-border(right, $menu-link-padding-y $menu-link-padding-x);
+				@include hover-focus(false) {
+					@include menu-link-style-border(right, $menu-link-padding-y $menu-link-padding-x);
+				}
+				@include active(false) {
+					@include menu-link-style-border(right, $menu-link-padding-y $menu-link-padding-x);
+				}
+			}
+		}
+		&#{name(null, vertical)}.float-right {
+			@include name(link) {
+				@include menu-link-style-border(left, $menu-link-padding-y $menu-link-padding-x);
+				@include hover-focus(false) {
+					@include menu-link-style-border(left, $menu-link-padding-y $menu-link-padding-x);
+				}
+				@include active(false) {
+					@include menu-link-style-border(left, $menu-link-padding-y $menu-link-padding-x);
+				}
+			}
+		}
+	}
+	@include name(null, pills) {
+		@extend %menu-pills;
+		@include name(item) {
+			+ { @include name(item) {
+				@extend %menu-item-item-pills;
+			} }
+			&:first-child {
+				@include name(link) {
+					@extend %menu-link-pills-first;
+				}
+			}
+			&:last-child {
+				@include name(link) {
+					@extend %menu-link-pills-last;
+				}
+			}
+		}
+		@include name(link) {
+			@extend %menu-link-pills;
+			@include hover-focus(false) {
+				@extend %menu-link-pills-hover;
+			}
+			@include active(false) {
+				@extend %menu-link-pills-active;
+			}
+		}
+		@include name(item, active '.active') {
+			@include name(link) {
+				@extend %menu-link-pills-active;
+			}
+		}
+	}
+	@include name(null, numbered) {
+		&, & #{name()} {
+			counter-reset: item;
+			@include name('@item') {
+				counter-increment: item;
+				@include name('@link') {
+					&:before {
+						content: counters(item, ".") ". ";
+						position: relative;
+						top: -1px;
+					}
+				}
+			}
+		}
+	}
+	@include name(null, offcanvas) {
+		@extend %menu-vertical;
+		@include name {
+			@extend %menu-vertical;
+		}
+		@include name(link) {
+			@include item-style($menu-offcanvas-color, $menu-offcanvas-bg, $menu-offcanvas-border);
+			@include hover-focus(false) {
+				@include item-style($menu-offcanvas-hover-color, $menu-offcanvas-hover-bg, $menu-offcanvas-hover-border);
+			}
+		}
+		@include name(link, active ':active' '.active') {
+			@include item-style($menu-offcanvas-active-color, $menu-offcanvas-active-bg, $menu-offcanvas-active-border);
+		}
+		@include name(heading) {
+			color: $menu-offcanvas-header-color;
+			background-color: $menu-offcanvas-header-bg;
+		}
+		@include name(separator) {
+			border-color: $menu-offcanvas-divider-border;
+			background: $menu-offcanvas-divider-border;
+			margin: 0px;
+			height: 4px;
+		}
+		@include name(null 'item') {
+			border-top: 1px solid rgba(#000, 0.3);
+			box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.05);
+			text-shadow: 0 1px 0 rgba(#000, 0.5);
+		}
+	}
+	@include name {
+		--indent-padding: 0px;
+	}
+	@include name (item) {
+		--list-indent-size: #{$menu-link-padding-x};
+		--parent-padding: var(--indent-padding);
+		@include name {
+			--indent-padding: calc(var(--parent-padding) + var(--list-indent-size));
+		}
+	}
+	@include name {
+		@include name(link) {
+			padding-inline-start: calc(#{$menu-link-padding-x} + var(--indent-padding)) !important;
+		}
+	}
+	///????????????
+	/*@include name {
+		@include menu-icons(side, ($menu-link-padding-y / 2));
+	}
+	@include name(null, icons-top) {
+		@include menu-icons(top, ($menu-link-padding-y / 2));
+	}*/
+	@include name {
+		ul[role="group"] {
+			//margin: ($menu-link-padding-y / 2) 0 ($menu-link-padding-y / 2) $menu-link-padding-x*1.5;
+		}
+	}
+}

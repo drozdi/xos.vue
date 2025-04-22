@@ -1,0 +1,243 @@
+// Base class
+//
+// Easily usable on <ul>, <ol>, or <div>.
+
+@import "../vars/list-group";
+@import "../tools/namespace";
+@import "../mixins/base";
+@import "../mixins/list-group";
+
+%list-group-content {
+  @if $enable-flex {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    flex-wrap: wrap;
+    flex: 1 1;
+  } @else {
+
+  }
+  overflow: hidden;
+  padding: 12px 0;
+  > * {
+    line-height: 1.1;
+    flex: 1 0 100%;
+  }
+}
+%list-group-title {
+  hyphens: auto;
+  overflow-wrap: normal;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: normal;
+  word-wrap: break-word;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: .009375em;
+  line-height: 1.5;
+  text-transform: none;
+}
+%list-group-subtitle {
+  opacity: 0.6;
+  overflow: hidden;
+  padding: 0;
+  text-overflow: ellipsis;
+  font-size: .875rem;
+  font-weight: 400;
+  letter-spacing: .0178571429em;
+  line-height: 1.15;
+  text-transform: none;
+}
+
+
+%list-group {
+  @if $enable-flex {
+    display: flex;
+    flex-direction: column;
+  } @else {
+    display: block;
+    @include clearfix;
+  }
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: static;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+%list-group-item {
+  @if $enable-flex {
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: row;
+    align-items: center;
+  } @else {
+    display: block;
+  }
+  max-width: 100%;
+  position: relative;
+  outline: none;
+  letter-spacing: normal;
+  text-decoration: none;
+  padding: $list-group-item-padding-y $list-group-item-padding-x;
+
+  color: $list-group-color;
+  background-color: $list-group-bg;
+  border: $list-group-border-width solid $list-group-border-color;
+
+  &:first-child {
+    @extend %list-group-item-first;
+  }
+  &:last-child {
+    @extend %list-group-item-last;
+  }
+  &:after {
+    background: currentColor;
+    opacity: 0;
+    border-radius: inherit;
+    bottom: 0;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+  }
+}
+%list-group-item-first {
+  @include border-top-radius(inherit);
+}
+%list-group-item-last {
+  @include border-bottom-radius(inherit);
+}
+%list-group-item-item {
+  border-top-width: 0;
+}
+
+%list-group-item-active {
+  z-index: 2; // Place active items above their siblings for proper border styling
+  color: $list-group-active-color;
+  background-color: $list-group-active-bg;
+  border-color: $list-group-active-border-color;
+}
+
+%list-group-item-action {
+  color: $list-group-action-color;
+  text-align: inherit; // For `<button>`s (anchors inherit)
+  &:disabled,
+  &[disabled],
+  form:disabled &,
+  form[disabled] &,
+  fieldset:disabled &,
+  fieldset[disabled] & {
+    @extend %list-group-item-disabled;
+  }
+}
+%list-group-item-action-hover {
+  color: $list-group-action-hover-color;
+  text-decoration: none;
+  &:after {
+    opacity: 0.08;
+  }
+}
+%list-group-item-action-focus {
+  color: $list-group-action-active-color;
+  //background-color: $list-group-action-active-bg;
+  &:after {
+    opacity: 0.24;
+  }
+}
+%list-group-item-action-active {
+  //box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5);
+  &:after {
+    opacity: 0.18;
+  }
+}
+
+%list-group-item-disabled {
+  //user-select: none;
+  pointer-events: none;
+  opacity: 0.65;
+  cursor: not-allowed !important;
+}
+
+@include namespace('@list-group', $component-list-group) {
+  @include name {
+    @extend %list-group;
+  }
+  @include name('@item') {
+    @extend %list-group-item;
+  }
+  @include name('@item', active '.active') {
+    @extend %list-group-item-active;
+  }
+  @include name('@item', disabled '.disabled' ':disabled' '[disabled]') {
+    @extend %list-group-item-disabled;
+  }
+  @include name('@item') {
+    @at-root a#{&}, button#{&}, label#{&} {
+      @extend %list-group-item-action;
+      @include hover(false) {
+        @extend %list-group-item-action-hover;
+      }
+      @include focus(false) {
+        @extend %list-group-item-action-focus;
+      }
+      @include active(false) {
+        @extend %list-group-item-action-active;
+      }
+    }
+  }
+  @include name(null, disabled) {
+    @include name('@item') {
+      @extend %list-group-item-disabled;
+    }
+  }
+
+  #{name('@item')} + #{name('@item')} {
+    @extend %list-group-item-item;
+  }
+  label#{name(item)} {
+    margin-bottom: 0;
+  }
+  @each $state, $value in $theme-colors {
+    %list-group-item-#{$state} {
+      @include list-group-item-variant(scale-color($value, $list-group-item-bg-scale), scale-color($value, $list-group-item-color-scale));
+    }
+    @include name(null, $state) {
+      @include name('@item') {
+        @extend %list-group-item-#{$state};
+      }
+    }
+    @include name('@item', $state) {
+      @extend %list-group-item-#{$state};
+    }
+  }
+  @include name(null, flush) {
+    @include name('@item') {
+      border-width: 0 0 1px;
+      &:last-child {
+        border-bottom-width: 0;
+      }
+    }
+  }
+  @include name(null, numbered) {
+    counter-reset: section;
+    @include name('@item') {
+      &:before {
+        content: counters(section, ".") ". ";
+        counter-increment: section;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

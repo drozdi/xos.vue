@@ -1,0 +1,583 @@
+{
+  "btn": {
+    "yes": "Да",
+    "no": "Нет",
+    "view": "Посмотреть",
+    "open": "Открыть",
+    "close": "Закрыть",
+    "collapse": "Свернуть",
+    "fullscreen": "Развернуть",
+    "unFullscreen": "Свернуть в окно",
+    "reload": "Обновить",
+    "add": "Добавить",
+    "remove": "Удалить",
+    "reset": "Сбросить",
+    "edit": "Изменить",
+    "save": "Сохранить",
+    "save_close": "Сохранить и закрыть",
+    "apply": "Применить",
+    "cancel": "Отмена",
+    "all": "Все",
+    "other": "Остальные"
+  },
+  "errors": {
+    "denied": "Доступ запрещен!",
+    "can_create": "Доступ запрещен!",
+    "can_read": "Доступ запрещен!",
+    "can_update": "Доступ запрещен!",
+    "can_delete": "Доступ запрещен!"
+  },
+  "x-window": {
+    "confirm": {
+      "close": {
+        "title": "Закрыть?",
+        "message": "Вы уверены что хотите закрыть окно?"
+      }
+    }
+  },
+  "win-table": {
+    "table": {
+      "table": "Таблица",
+      "all": "Все",
+      "remove": {
+        "title": "Удалить?",
+        "message": "Вы уверены что хотите удалить элемент \"{name}\"?"
+      },
+      "actions": {
+        "title": "Действия"
+      }
+    }
+  },
+  "win-form": {
+    "title": "Элемент \"{name}\"",
+    "new": "Новый элемент",
+    "confirm": {
+      "close": {
+        "title": "Закрыть?",
+        "message": "Вы уверены что хотите закрыть окно \"{name}\"?"
+      }
+    }
+  },
+  "select-prototype": {
+    "no-results": "No results"
+  },
+  "account": {
+    "title": "Настройки пользователя",
+    "props": {
+      "login": "Login",
+      "password": "Пароль",
+      "confirm_password": "Подтверждение",
+      "alias": "Обращение",
+      "name": "Название",
+      "code": "CODE",
+      "sort": "Индекс",
+      "description": "О себе",
+      "tutor": "Куратор",
+      "is_tutors": "Могут быть кураторами",
+      "user_id": "Куратор",
+      "ou_id": "Подразделение",
+      "active": "Активная",
+      "anonymous": "Анонимная",
+      "loocked": "Заблокирован",
+      "email": "Email",
+      "phone": "Телефон",
+      "second_name": "Фамилия",
+      "first_name": "Имя",
+      "patronymic": "Отчество",
+      "gender": "Пол",
+      "country": "Страна",
+      "dateCreated": "Время создания",
+      "dateRegister": "Дата регистрации",
+      "xTimestamp": "Время изменения",
+      "lastLogin": "Время последнего входа"
+    }
+  },
+  "main": {
+    "title": "Main:",
+    "props": {
+      "login": "Login",
+      "alias": "Псевдоним",
+      "name": "Название",
+      "code": "CODE",
+      "sort": "Индекс",
+      "description": "Описание",
+      "tutor": "Ответственный",
+      "is_tutors": "Могут быть кураторами",
+      "user_id": "Куратор",
+      "ou_id": "Подразделение",
+      "active": "Активная",
+      "anonymous": "Анонимная",
+      "loocked": "Заблокирован",
+      "email": "Email",
+      "phone": "Телефон",
+      "second_name": "Фамилия",
+      "first_name": "Имя",
+      "patronymic": "Отчество",
+      "gender": "Пол",
+      "country": "Страна",
+      "active_from": "Активный с",
+      "active_to": "Активный по",
+      "activeFrom": "Активный с",
+      "activeTo": "Активный по"
+    },
+    "components": {
+      "table-claimant": {
+        "props": {
+          "level": "Уровень"
+        }
+      },
+      "table-users": {
+        "props": {
+          "activeFrom": "Активный с",
+          "activeTo": "Активный по"
+        }
+      },
+      "table-groups": {
+        "props": {
+          "activeFrom": "Активный с",
+          "activeTo": "Активный по"
+        }
+      }
+    }
+  },
+  "main-ou": {
+    "title": "@:main.title Подразделени \"{name}\"",
+    "new": "@:main.title Новое подразделени",
+    "table": {
+      "title": "@:main.title Подразделения"
+    },
+    "props": {
+      "name": "@:main.props.name",
+      "code": "@:main.props.code",
+      "sort": "@:main.props.sort",
+      "description": "@:main.props.description",
+      "tutor": "@:main.props.tutor",
+      "is_tutors": "@:main.props.is_tutors",
+      "user_id": "@:main.props.user_id"
+    },
+    "success": {
+      "remove": "Подразделение \"{name} ({code})\", успешно удаленно!",
+      "save": "Подразделение \"{name} ({code})\", успешно сохранено!",
+      "update": "Подразделение \"{name} ({code})\", успешно изменено!"
+    }
+  },
+  "main-claimant": {
+    "title": "@:main.title Правило \"{name}\"",
+    "new": "@:main.title Новое правило",
+    "table": {
+      "title": "@:main.title Типы прав"
+    },
+    "props": {
+      "name": "@:main.props.name",
+      "code": "@:main.props.code",
+      "sort": "@:main.props.sort"
+    },
+    "success": {
+      "remove": "Правило \"{name} ({code})\", успешно удалено!",
+      "save": "Правило \"{name} ({code})\", успешно сохранено!",
+      "update": "Правило \"{name} ({code})\", успешно изменено!"
+    }
+  },
+  "main-group": {
+    "title": "@:main.title Группа \"{name}\"",
+    "new": "@:main.title Новая группа",
+    "tab-general": "Общее",
+    "tab-users": "Пользователи",
+    "tab-accesses": "Права",
+    "table": {
+      "title": "@:main.title Группы"
+    },
+    "props": {
+      "name": "@:main.props.name",
+      "code": "@:main.props.code",
+      "sort": "@:main.props.sort",
+      "description": "@:main.props.description",
+      "tutor": "@:main.props.tutor",
+      "is_tutors": "@:main.props.is_tutors",
+      "user_id": "@:main.props.tutor",
+      "ou_id": "@:main.props.ou_id",
+      "parent_id": "Родительская группа",
+      "active": "@:main.props.active",
+      "active_from": "@:main.props.active_from",
+      "active_to": "@:main.props.active_to",
+      "activeFrom": "@:main.props.activeFrom",
+      "activeTo": "@:main.props.activeTo",
+      "anonymous": "@:main.props.anonymous"
+    },
+    "success": {
+      "remove": "Группа \"{name} ({code})\", успешно удаленна!",
+      "save": "Группа \"{name} ({code})\", успешно сохранена!",
+      "update": "Группа \"{name} ({code})\", успешно изменена!"
+    },
+    "errors": {
+      "add-user": "Нельзя добавить пользователя \"{name}\"! Уже есть!",
+      "add-group": "Нельзя добавить группу \"{name}\"! Уже есть!",
+      "add-claimant": "Нельзя добавить правило \"{name}\"! Уже есть!'"
+    }
+  },
+  "main-user": {
+    "title": "@:main.title Пользователь \"{login}\"",
+    "new": "@:main.title Новый пользователь",
+    "tab-general": "Общее",
+    "tab-groups": "Группы",
+    "tab-accesses": "Права",
+    "tab-roles": "Роли",
+    "table": {
+      "title": "@:main.title Пользователи"
+    },
+    "props": {
+      "login": "@:main.props.login",
+      "alias": "@:main.props.alias",
+      "tutor": "@:main.props.tutor",
+      "name": "@:main.props.name",
+      "code": "@:main.props.code",
+      "sort": "@:main.props.sort",
+      "description": "@:main.props.description",
+      "is_tutors": "@:main.props.is_tutors",
+      "ou_id": "@:main.props.ou_id",
+      "parent_id": "@:main.props.user_id",
+      "active": "@:main.props.active",
+      "active_from": "@:main.props.active_from",
+      "active_to": "@:main.props.active_to",
+      "activeFrom": "@:main.props.activeFrom",
+      "activeTo": "@:main.props.activeTo",
+      "loocked": "@:main.props.loocked",
+      "email": "@:main.props.email",
+      "phone": "@:main.props.phone",
+      "second_name": "@:main.props.second_name",
+      "first_name": "@:main.props.first_name",
+      "patronymic": "@:main.props.patronymic",
+      "gender": "@:main.props.gender",
+      "country": "@:main.props.country"
+    },
+    "success": {
+      "remove": "Пользователь \"{login} ({alias})\", успешно удален!",
+      "save": "Пользователь \"{login} ({alias})\", успешно сохранен!",
+      "update": "Пользователь \"{login} ({alias})\", успешно изменен!"
+    },
+    "errors": {
+      "add-user": "Нельзя добавить пользователя \"{name}\"! Уже есть!",
+      "add-group": "Нельзя добавить группу \"{name}\"! Уже есть!",
+      "add-claimant": "Нельзя добавить правило \"{name}\"! Уже есть!'"
+    }
+  },
+
+  "device": {
+    "title": "Устройства:",
+    "props": {
+      "addon": "Доп. св.",
+      "active": "Активно",
+      "required": "Обязательный",
+      "multiple": "Множественное",
+      "name": "Название",
+      "code": "CODE",
+      "sort": "Индекс",
+      "sn": "Серийный номер",
+      "description": "Описание",
+      "fieldType": "Тип",
+      "postfix": "ед.из.",
+      "listType": "Тип списка",
+      "defaultValue": "Значение по умолчанию",
+      "enums": "Значения"
+    },
+    "software": {
+      "props": {
+        "name": "Название",
+        "code": "CODE",
+        "type": "Тип программы",
+        "sort": "Индекс"
+      }
+    },
+    "components": {
+      "field-type": {
+        "S": "Строка",
+        "L": "Список",
+        "N": "Число"
+      },
+      "list-type": {
+        "S": "Выподающий список",
+        "C": "Переключатель"
+      },
+      "form-component-properties": {
+        "property": "Cвойство",
+        "value": "Значение",
+        "name": "Название"
+      },
+      "form-accounting": {
+        "inNo": "Инвентарный номер",
+        "invoice": "Накладная",
+        "dateInvoice": "Дата приемки",
+        "dateDiscarded": "Дата списания",
+        "discarded": "Списан",
+        "name": "Запись в бухгалтерии",
+        "attach": "Родительский учет",
+        "detach": "Отвязать от родительского учета"
+      },
+      "table-enums": {
+        "code": "Значение",
+        "name": "Название",
+        "default": "По умолчанию"
+      },
+      "table-device-location": {
+        "date": "Дата",
+        "responsible": "Ответственный",
+        "place": "Месторасположение"
+      },
+      "table-device-repair": {
+        "putInto": "Дата сдачи",
+        "receivedFrom": "Дата получения",
+        "repairman": "Ремонтник",
+        "reason": "Причина",
+        "description": "Сведенья о ремонте"
+      },
+      "table-device-property": {
+        "property": "Cвойство",
+        "value": "Значение",
+        "name": "Название",
+        "sn": "Серийный номер"
+      },
+      "table-device-license": {
+        "type": "Тип",
+        "software": "Программа",
+        "license": "Лицензия",
+        "key": "Ключ"
+      }
+    }
+  },
+  "device-software-type": {
+    "title": "@:device.title Тип прорамм \"{name}\"",
+    "new": "@:device.title Новый тип прорамм",
+    "table": {
+      "title": "@:device.title Типы программ"
+    },
+    "props": {
+      "name": "@:device.software.props.name",
+      "code": "@:device.software.props.code",
+      "sort": "@:device.software.props.sort"
+    },
+    "success": {
+      "remove": "Тип \"{name} ({code})\", успешно удален!",
+      "save": "Тип \"{name} ({code})\", успешно сохранен!",
+      "update": "Тип \"{name} ({code})\", успешно изменен!"
+    }
+  },
+  "device-software": {
+    "title": "@:device.title Программа \"{name}\"",
+    "new": "@:device.title Новая программа",
+    "all": "Все",
+    "table": {
+      "title": "@:device.title Программы"
+    },
+    "props": {
+      "parent": "Разновидность программы",
+      "name": "@:device.software.props.name",
+      "type": "@:device.software.props.type",
+      "sort": "@:device.software.props.sort"
+    },
+    "success": {
+      "save": "Программа \"{name}\", успешно сохранена!",
+      "update": "Программа \"{name}\", успешно изменена!",
+      "remove": "Программа \"{name}\", успешно удалена!"
+    }
+  },
+  "device-license": {
+    "title": "@:device.title Лицензия \"{code}\"",
+    "new": "@:device.title Новая Лицензия",
+    "tab-general": "Общие сведения",
+    "tab-software": "Программы",
+    "table": {
+      "title": "@:device.title Лицензии"
+    },
+    "props": {
+      "code": "CODE",
+      "type": "Тип лицензии",
+      "no": "Номер лицензии",
+      "autNo": "Авторизационный номер",
+      "dateReal": "Дата выдачи",
+      "typeSoft": "Тип программы",
+      "software": "Программа",
+      "count": "Количество",
+      "typeKey": "Тип ключа",
+      "key": "Ключ",
+      "actived": "Код активации"
+    },
+    "success": {
+      "save": "Лицензия \"{code}\", успешна сохранена!",
+      "update": "Лицензия \"{code}\", успешна изменена!",
+      "remove": "Лицензия \"{code}\", успешна удалена!"
+    }
+  },
+  "device-license-key": {
+    "title": "@:device.title Лицензия \"{name}\"",
+    "props": {
+      "typeSoft": "Тип программы",
+      "software": "Программа",
+      "count": "Количество",
+      "typeKey": "Тип ключа",
+      "key": "Ключ",
+      "actived": "Код активации"
+    },
+    "success": {
+      "save": "Ключи \"{name}\", успешно сохранены!",
+      "update": "Ключи \"{name}\", успешно изменены!",
+      "remove": "Лицензия \"{name}\", успешна удалена!"
+    }
+  },
+
+  "device-type": {
+    "title": "@:device.title Тип \"{name}\"",
+    "new": "@:device.title Новый тип",
+    "enums_title": "@:device.props.enums \"{name}\"",
+    "tab-general": "Общее",
+    "tab-component": "Компоненты",
+    "tab-prototype": "Свойства",
+    "join-property": "Присоединить свойство",
+    "exist-property": "Свойство \"{name}\" уже присуствует",
+    "table": {
+      "title": "@:device.title Типы устройств"
+    },
+    "props": {
+      "active": "@:device.props.active",
+      "required": "@:device.props.required",
+      "multiple": "@:device.props.multiple",
+      "name": "@:device.props.name",
+      "code": "@:device.props.code",
+      "parent": "Группа",
+      "sort": "@:device.props.sort",
+      "addon": "@:device.props.addon",
+      "fieldType": "@:device.props.fieldType",
+      "postfix": "@:device.props.postfix",
+      "listType": "@:device.props.listType",
+      "defaultValue": "@:device.props.defaultValue",
+      "enums": "@:device.props.enums"
+    },
+    "success": {
+      "save": "Тип \"{name} ({code})\", успешно сохранено!",
+      "update": "Тип \"{name} ({code})\", успешно изменено!",
+      "remove": "Тип \"{name} ({code})\", успешно удален!"
+    }
+  },
+  "device-property": {
+    "title": "@:device.title Свойство \"{name}\"",
+    "new": "@:device.title Новое свойство",
+    "tab-general": "Общее",
+    "tab-prototype": "Связанные свойства",
+    "join-to-component": "Присоединить к компоненту",
+    "join-to-property": "Присоединить к свойству",
+    "table": {
+      "title": "@:device.title Свойства"
+    },
+    "props": {
+      "type": "Тип",
+      "active": "@:device.props.active",
+      "required": "@:device.props.required",
+      "multiple": "@:device.props.multiple",
+      "addon": "@:device.props.addon",
+      "name": "@:device.props.name",
+      "code": "@:device.props.code",
+      "sort": "@:device.props.sort",
+      "fieldType": "@:device.props.fieldType",
+      "postfix": "@:device.props.postfix",
+      "listType": "@:device.props.listType",
+      "defaultValue": "@:device.props.defaultValue",
+      "enums": "@:device.props.enums"
+    },
+    "success": {
+      "save": "Свойство \"{name} ({code})\", успешно сохранено!",
+      "update": "Свойство \"{name} ({code})\", успешно изменено!",
+      "remove": "Свойство \"{name} ({code})\", успешно удалено!"
+    }
+  },
+  "device-component": {
+    "title": "@:device.title Компанент \"{name}\"",
+    "new": "@:device.title Новый компанент",
+    "join-prototype": "Присоединить свойство",
+    "enums_title": "@:device.props.enums \"{name}\"",
+    "table": {
+      "title": "@:device.title Компаненты"
+    },
+    "props": {
+      "active": "@:device.props.active",
+      "required": "@:device.props.required",
+      "multiple": "@:device.props.multiple",
+      "addon": "@:device.props.addon",
+      "name": "@:device.props.name",
+      "code": "@:device.props.code",
+      "sort": "@:device.props.sort",
+      "fieldType": "@:device.props.fieldType",
+      "postfix": "@:device.props.postfix",
+      "listType": "@:device.props.listType",
+      "defaultValue": "@:device.props.defaultValue",
+      "enums": "@:device.props.enums"
+    },
+    "success": {
+      "save": "Компанент \"{name} ({code})\", успешно сохранен!",
+      "update": "Компанент \"{name} ({code})\", успешно изменен!",
+      "remove": "Компанент \"{name} ({code})\", успешно удален!"
+    }
+  },
+
+  "device-device": {
+    "title": "@:device.title Устройство \"{title}\"",
+    "new": "@:device.title Новое устройство",
+    "table": {
+      "title": "@:device.title Устройства"
+    },
+    "tab-general": "Общие сведения",
+    "tab-description": "Особые отметки",
+    "tab-property": "Комплектация",
+    "tab-images": "Изображения",
+    "tab-license": "Лицензии",
+    "tab-location": "Сведенье о расположения",
+    "tab-repair": "Сведенье о ремонте",
+    "tab-log": "Журнал",
+    "props": {
+      "location": "Местоположение",
+      "inNo": "Инвентарный номер",
+      "dateCreated": "Время создания",
+      "xTimestamp": "Время изменения",
+      "createdBy": "Кто добавил",
+      "modifiedBy": "Кто изменил",
+      "name": "@:device.props.name",
+      "code": "@:device.props.code",
+      "sort": "@:device.props.sort",
+      "sn": "@:device.props.sn",
+      "description": "@:device.props.description"
+    },
+    "success": {
+      "save": "Устройство \"{name} ({code})\", успешно сохранено!",
+      "update": "Устройство \"{name} ({code})\", успешно изменено!",
+      "remove": "Устройство \"{name} ({code})\", успешно удалено!"
+    }
+  },
+  "device-sub-device": {
+    "title": "@:device.title Компанент \"{title}\"",
+    "new": "@:device.title Новый компанент",
+    "table": {
+      "title": "@:device.title Компаненты"
+    },
+    "tab-general": "Общие сведения",
+    "tab-properties": "Характеристики",
+    "tab-description": "Особые отметки",
+    "tab-histories": "Где находился",
+    "tab-log": "Журнал",
+    "props": {
+      "location": "Местоположение",
+      "inNo": "Инвентарный номер",
+      "dateCreated": "Время создания",
+      "xTimestamp": "Время изменения",
+      "createdBy": "Кто добавил",
+      "modifiedBy": "Кто изменил",
+      "name": "@:device.props.name",
+      "code": "@:device.props.code",
+      "sort": "@:device.props.sort",
+      "sn": "@:device.props.sn",
+      "description": "@:device.props.description"
+    },
+    "success": {
+      "save": "Устройство \"{name}\", успешно сохранено!",
+      "update": "Устройство \"{name}\", успешно изменено!",
+      "remove": "Устройство \"{name}\", успешно удалено!"
+    }
+  }
+}

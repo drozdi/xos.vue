@@ -1,0 +1,58 @@
+@import "./base";
+@import "./colors";
+
+$dropdown-font-size-base: 						$font-size-base !default;
+$dropdown-line-height-base: 					$line-height-base !default;
+$dropdown-line-height-computed: 				($dropdown-font-size-base * $dropdown-line-height-base) !default;
+
+$dropdown-height: 								($dropdown-font-size-base * 2.5) !default;
+$dropdown-gutter-width:							max($dropdown-height, $dropdown-line-height-computed) !default;
+
+$dropdown-font-size: 							$dropdown-font-size-base !default;
+$dropdown-line-height: 							$dropdown-line-height-base !default;
+$dropdown-padding-y:     				        (($dropdown-height - $dropdown-line-height-computed) / 2) !default;
+$dropdown-padding-x:   				            ($dropdown-gutter-width / 2) !default;
+
+$dropdown-caret-size: 							($dropdown-font-size-base / 2.5) !default;
+
+$dropdown-bg: 									#272e3b !default;
+$dropdown-color: 								rgba($white, .6) !default;
+$dropdown-border:								$black !default;
+$dropdown-shadow:								rgba($black, .75) !default;
+$dropdown-divider: 								#3d434f !default;
+
+$dropdown-header-font-size: 					$dropdown-font-size-base * 1.25 !default;
+$dropdown-header-line-height:                   $dropdown-line-height-base !default;
+$dropdown-header-padding-y:     			    ($dropdown-padding-y / 2) !default;
+$dropdown-header-padding-x:   			        $dropdown-padding-x !default;
+$dropdown-header-color:							rgba($white, .3) !default;
+$dropdown-header-bg:							rgba($white, .1) !default;
+
+$dropdown-section-padding-y:     		        ($dropdown-padding-y / 2) !default;
+$dropdown-section-padding-x:   		            $dropdown-padding-x !default;
+
+$dropdown-well-bg:								darken($dropdown-bg, 2%) !default;
+
+$menu-dropdown-link-font-size: 					$dropdown-font-size !default;
+$menu-dropdown-link-line-height: 			    $dropdown-line-height !default;
+$menu-dropdown-link-padding-y:     			    $dropdown-padding-y !default;
+$menu-dropdown-link-padding-x:   			    $dropdown-padding-x !default;
+
+$menu-dropdown-link-color:						rgba($white, .7) !default;
+$menu-dropdown-link-bg:							transparent !default;
+$menu-dropdown-link-border:						none !default;
+
+$menu-dropdown-link-hover-color:				rgba($white, 1) !default;
+$menu-dropdown-link-hover-bg:					rgba($white, .07) !default;
+$menu-dropdown-link-hover-border:				none !default;
+
+$menu-dropdown-link-active-color:				rgba($white, 1) !default;
+$menu-dropdown-link-active-bg:					transparent !default;
+$menu-dropdown-link-active-border:				none !default;
+
+$menu-dropdown-header-color:					$dropdown-header-color !default;
+$menu-dropdown-header-bg:						$dropdown-header-bg !default;
+$menu-dropdown-header-font-weight: 				bold !default;
+$menu-dropdown-header-text-transform: 			uppercase !default;
+
+$menu-dropdown-divider-border:					$dropdown-divider !default;

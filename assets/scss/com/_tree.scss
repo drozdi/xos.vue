@@ -1,0 +1,162 @@
+$xTree-font-size:									18px !default;
+$xTree-line-height-base:							20/14 !default;
+$xTree-line-height-computed:						($xTree-font-size * $xTree-line-height-base) !default;
+
+$xTree-line-height:									$xTree-line-height-base !default;
+$xTree-gutter-width:								($xTree-font-size * 1.5) !default;
+$xTree-item-height:									($xTree-font-size * 2) !default;
+
+$xTree-padding-horizontal:							($xTree-gutter-width / 2) !default;
+$xTree-padding-vertical:							(($xTree-item-height - $xTree-line-height-computed) / 2) !default;
+
+$xTree-icon-size:									floor($xTree-font-size * 1.5) !default;
+$xTree-icon-offset-horizontal:						floor($xTree-gutter-width / 2) !default;
+$xTree-icon-offset-vertical:						floor(($xTree-item-height - $xTree-icon-size) / 2) !default;
+
+$xTree-caret-size: 									$xTree-font-size !default;
+$xTree-caret-top: 									(($xTree-item-height - $xTree-caret-size) / 2) !default; 
+
+$xTree-color:										darken(#fff, 45%) !default;
+$xTree-hover-color:  				   		 		#fff !default;
+$xTree-hover-bg:									transparent !default;
+$xTree-active-color:								#fff !default;
+$xTree-active-bg:									rgba(#fff,.15) !default;
+
+@include namespace('xTree', true) {
+	@include name {
+		ul {
+			list-style: none;
+		}
+	}
+	@include name (list) {
+		list-style: none;
+	}
+	@include name (null list item) {
+		margin: 0;
+		padding: 0;
+	}
+	@include name (item) {
+		> .caret {
+			float: left;
+			display: block;
+			cursor: pointer;
+			padding-left: ($xTree-gutter-width * 0.15);
+			margin-right: ($xTree-gutter-width * 0.25);
+			height: ($xTree-item-height - 1);
+			&:before {
+				display: block;
+				content: "";
+				width: $xTree-caret-size;
+				height: $xTree-caret-size;
+				margin-top: $xTree-caret-top;
+				border: 0 solid $xTree-color;
+				border-bottom-width: 2px;
+				border-right-width: 2px;
+				@include transition(transform .1s ease-out);
+				@include transform(rotate(-45deg) scale(0.6));
+			}
+			&:hover:before {
+				border-color: $xTree-hover-color;
+			}
+		}
+		> {@include name (list) {
+			margin-left: ($xTree-gutter-width / 2);
+		} }
+	}
+	@include name (item, collapsed) {
+		> .caret:before {
+			@include transform(rotate(-45deg) scale(0.6));
+		}
+		> {@include name (list) {
+			display: none;
+		} }
+	}
+	@include name (item, expanded) {
+		> .caret:before {
+			margin-top: ($xTree-caret-top - ($xTree-caret-size / 4));
+			@include transform(rotate(45deg) scale(0.6));
+		}
+		> {@include name (list) {
+			display: block;
+		} }
+	}
+	@include name (item) {
+		> a, > span {
+			display: block;
+			text-decoration: none;
+			color: $xTree-color;
+			padding: $xTree-padding-vertical ($xTree-caret-size + $xTree-padding-horizontal);
+			font-size: $xTree-font-size;
+			line-height: $xTree-line-height;
+			&:hover,
+			&:focus {
+				color: $xTree-hover-color;
+				background: $xTree-hover-bg;
+			}
+		}
+	}
+
+	@include name (item, selected) {
+		> a, > span {
+			color: $xTree-active-color;
+			background: $xTree-active-bg;
+			&:hover,
+			&:focus,
+			&:active {
+				color: $xTree-active-color;
+				background: $xTree-active-bg;
+			}
+		}
+	}
+	@include name (item) {
+		> a, > span	{
+			&:before {
+				@include xFont-icon;
+				float: left;
+				line-height: 1;
+				text-align: center;
+				vertical-align: middle;
+				font-size: $xTree-icon-size;
+				width: $xTree-icon-size;
+				height: $xTree-icon-size;
+				color: $xTree-color;
+				margin-top: $xTree-icon-offset-vertical - $xTree-padding-vertical;
+				margin-right: $xTree-icon-offset-horizontal;
+				cursor: default;
+				color: inherit;
+			}
+		}
+	}
+
+	@include name (item, collapsed) {
+		> a, > span {
+			&:before { content: "\f07b"; }
+		}
+	}
+	@include name (item, expanded) {
+		> a, > span {
+			&:before { content: "\f07c"; }
+		}
+	}
+	@include name (item, root) {
+		> .caret {
+			display: none;
+		}
+		> a, > span {
+			padding: $xTree-padding-vertical $xTree-padding-horizontal;
+			&:before { content: "\f0f7"; }
+		}
+	}
+	@include name (item, disk) {
+		> a, > span {
+			&:before { content: "\f0a0"; }
+		}
+	}
+
+	@include name (name) {
+		@include text-overflow;
+	}
+	@include name (name, input) {
+		display: block;
+	}
+}

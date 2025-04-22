@@ -1,0 +1,25 @@
+@import "./base";
+@import "./colors";
+@import "./components";
+// List group
+
+$list-group-color:                  rgba($white, .7) !default;
+$list-group-bg:                     rgba($black, .4) !default;
+$list-group-border-color:           rgba($white, .15) !default;
+$list-group-border-width:           $border-width !default;
+$list-group-border-radius:          $border-radius !default;
+
+$list-group-item-padding-y:         $spacer / 2 !default;
+$list-group-item-padding-x:         $spacer !default;
+$list-group-item-bg-scale:          20% !default;
+$list-group-item-color-scale:       -80% !default;
+
+$list-group-active-color:           $component-active-color !default;
+$list-group-active-bg:              $component-active-bg !default;
+$list-group-active-border-color:    $list-group-active-bg !default;
+
+$list-group-action-color:           $link-color !default;
+$list-group-action-hover-color:     $link-hover-color !default;
+
+$list-group-action-active-color:    $component-active-color !default;
+$list-group-action-active-bg:       $component-active-bg !default;

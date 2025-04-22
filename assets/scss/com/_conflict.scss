@@ -1,0 +1,57 @@
+@include namespace('xWindow', true) {
+	@include name(null, conflict) {
+		@include namespace('xLayout', true) { @include namespace-down {
+			@include name(body) {
+				@include name(contet) {
+					padding: 10px 20px;
+				}
+			}
+		} }
+	}
+}
+
+@include namespace('xConflict', true) {
+	@include name {
+		border-top: 1px solid rgba(#fff, .15);
+		padding-top: 10px;
+		@include clearfix;
+		&:first-child {
+			border-top: none;
+			padding-top: 0;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			li {
+				margin: 9px auto;
+				padding: 6px 6px 12px 18px;
+				cursor: pointer;
+				border: 1px solid rgba(#fff, .3);
+				h5 {
+					margin: 0 0 0 24px;
+				}
+				&:hover {
+					background-color: rgba(#fff, .2);
+					border-color: rgba(#fff, .5);
+					@include box-shadow(0 0 15px rgba(#000, .7));
+				}
+				&:active {
+					background-color: rgba(#fff, .2);
+					border-color: rgba(#fff, .2);
+					@include box-shadow(inset 0 0 5px rgba(#000, .9), 0 0 2px rgba(#fff, .3));
+				}
+			}
+		}
+	}
+	@include name (stack) {
+		@include clearfix;
+	}
+	@include name (label folder) {
+		float: left;
+	}
+	@include name (folder) {
+		font-weight: bold;
+		margin-left: 6px;
+	}
+}
+

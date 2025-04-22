@@ -1,0 +1,26 @@
+@import "./base";
+@import "./menu";
+@import "../vars/dropdown";
+
+@mixin dropdown-angel ($size: null, $direction: right) {
+	@include angel($size: $size, $direction: $direction);
+	margin-top: ((($dropdown-height - $size) / 2) - ($dropdown-padding-y * 1));
+	margin-right: ($dropdown-gutter-width / -1.5);
+}
+
+@mixin menu-template-dropdown {
+	@include menu-template(
+		$color: $menu-dropdown-link-color,
+		$bg: $menu-dropdown-link-bg,
+		$border: $menu-dropdown-link-border,
+		$hover-color: $menu-dropdown-link-hover-color,
+		$hover-bg: $menu-dropdown-link-hover-bg,
+		$hover-border: $menu-dropdown-link-hover-border,
+		$active-color: $menu-dropdown-link-active-color,
+		$active-bg: $menu-dropdown-link-active-bg,
+		$active-border: $menu-dropdown-link-active-border,
+		$divider-border: $menu-dropdown-divider-border,
+		$header-color: $menu-dropdown-header-color,
+		$header-bg: $menu-dropdown-header-bg
+	);
+}

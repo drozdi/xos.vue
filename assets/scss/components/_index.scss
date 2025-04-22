@@ -1,0 +1,32 @@
+$enable-transitions:				false !default;
+$enable-shadows:					false !default;
+$enable-gradients:					false !default;
+$disabled-events:					false !default;
+
+$enable-flex:						false !default;
+$enable-container: 					false !default;
+$enable-grid: 						false !default;
+$enable-visible:					false !default;
+
+$component-list-group: 				false !default;
+$component-menu: 					false !default;
+$component-dropdown: 				false !default;
+
+
+@import "../mixins/css";
+
+%border-radius {
+  @include border-radius(0);
+}
+%border-radius-top {
+  @include border-top-radius(0);
+}
+%border-radius-right {
+  @include border-right-radius(0);
+}
+%border-radius-bottom {
+  @include border-bottom-radius(0);
+}
+%border-radius-left {
+  @include border-left-radius(0);
+}

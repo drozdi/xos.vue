@@ -1,0 +1,56 @@
+.gn-scroll {
+	overflow: hidden;
+	position: relative;
+	> .track {
+		position: absolute;
+		> .bar {
+			position: absolute;
+			background-image: none;
+			background-color: rgba(255,255,255,0.2);
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+		}
+		> .bar:hover,
+		> .bar.hover {
+			background-color: rgba(255,255,255,0.4);
+		}
+	}
+	> .track.v,
+	> .track.v > .bar {
+		top: 0px;
+		width: 6px;
+	}
+	> .track.v {
+		top: 4px;
+		right: 4px;
+		bottom: 4px;
+		> .bar {
+			height: 10%;
+		}
+	}
+	> .track.h,
+	> .track.h  > .bar {
+		left: 0;
+		height: 6px;
+	}
+	> .track.h {
+		left: 4px;
+		bottom: 4px;
+		right: 14px;
+		> .bar {
+			width: 10%;
+		}
+	}
+	> .gn-scroll-con {
+		position: absolute;
+		overflow: hidden;
+		top: 0;
+		right: 14px;
+		bottom: 14px;
+		left: 0;
+		> * {
+			position: absolute;
+		}
+	}
+}

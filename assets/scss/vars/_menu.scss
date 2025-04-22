@@ -1,0 +1,85 @@
+@import "./colors";
+@import "./base";
+@import "./components";
+
+$menu-link-font-size:                   $font-size-base !default;
+$menu-link-line-height:		    		$line-height-base !default;
+$menu-link-font-weight:                 null !default;
+$menu-link-padding-y:                   .75rem !default;
+$menu-link-padding-x:                   1rem !default;
+
+$menu-link-transition:                  color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
+$menu-link-disabled-color:              $gray-600 !default;
+
+$menu-link-color: 						rgba($white, .7) !default;
+$menu-link-bg: 							null !default;
+$menu-link-border:                      none !default;
+
+$menu-link-hover-color: 				rgba($white, 1) !default;
+$menu-link-hover-bg: 					rgba($white, .15) !default;
+$menu-link-hover-border: 				rgba($white, 1) !default;
+
+$menu-link-active-color: 				rgba($white, 1) !default;
+$menu-link-active-bg: 					rgba($white, .15) !default;
+$menu-link-active-border: 				rgba($white, 1) !default;
+
+$menu-header-color: 					rgba($white, .4) !default;
+$menu-header-text-transform:            uppercase !default;
+$menu-header-font-weight:               bold !default;
+
+$menu-divider-border: 					rgba($white, .2) !default;
+
+$menu-nested-link-color: 				rgba(#07D, 1) !default;
+$menu-nested-link-hover-color: 			rgba(#059, 1) !default;
+
+$menu-height: 							$menu-link-font-size * $menu-link-line-height + 2*$menu-link-padding-y !default;
+$menu-caret-size: 						$menu-link-font-size !default;
+$menu-caret-top: 						(($menu-height - $menu-caret-size) / 2) !default;
+
+$menu-side-border-width: 				0.25rem !default;
+
+$menu-pills-border-radius:                      $border-radius !default;
+$menu-pills-bg: 								rgba($black, .15) !default;
+$menu-pills-color: 								rgba($white, .7) !default;
+$menu-pills-border: 							rgba($white, .15) !default;
+$menu-pills-hover-bg: 							rgba($black, .20) !default;
+$menu-pills-hover-color: 						rgba($white, 1) !default;
+$menu-pills-hover-border: 						rgba($white, .25) !default;
+$menu-pills-active-bg: 							$component-active-bg !default;
+$menu-pills-active-color: 						$component-active-color !default;
+$menu-pills-active-border: 						rgba($white, .1) !default;
+$menu-pills-active-shadow: 						inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.3) !default;
+
+$menu-offcanvas-color:							rgba(#fff, .7) !default;
+$menu-offcanvas-bg:								transparent !default;
+$menu-offcanvas-border:							none !default;
+$menu-offcanvas-hover-color:					#fff !default;
+$menu-offcanvas-hover-bg:						rgba(#fff, .04) !default;
+$menu-offcanvas-hover-border:					none !default;
+$menu-offcanvas-active-color:					#fff !default;
+$menu-offcanvas-active-bg:						rgba(#000, 0.7) !default;
+$menu-offcanvas-active-border:					none !default;
+$menu-offcanvas-header-color:					rgba(#777, 1) !default;
+$menu-offcanvas-header-bg:						rgba(#fff, .04) !default;
+$menu-offcanvas-divider-border:					rgba(#1a1a1a, 1) !default;
+$menu-offcanvas-nested-color:					rgba(#ccc, 1) !default;
+$menu-offcanvas-nested-hover-color:				rgba(#fff, 1) !default;
+
+//????????????????????
+$menu-context-icon-size: 						($menu-link-font-size * 1.35) !default;
+$menu-context-icon-color: 						rgba(#00aeff, 1) !default;
+$menu-context-padding-y:				        (($menu-height - $menu-context-icon-size) / 4) !default;
+$menu-context-padding-x:				        ($menu-link-padding-x + $menu-context-icon-size) !default;
+$menu-context-offset-y: 					    ($menu-link-padding-y - $menu-link-padding-y) !default;
+$menu-context-offset-x: 				        ($menu-context-icon-size * -1.5) !default;
+
+$menu-tabs-border-color:                        $gray-300 !default;
+$menu-tabs-border-width:                        $border-width !default;
+$menu-tabs-border-radius:                       $border-radius !default;
+$menu-tabs-link-hover-border-color:             $gray-200 $gray-200 $menu-tabs-border-color !default;
+$menu-tabs-link-active-color:                   $gray-700 !default;
+$menu-tabs-link-active-bg:                      $body-bg !default;
+$menu-tabs-link-active-border-color:            $gray-300 $gray-300 $menu-tabs-link-active-bg !default;
+
+
+
